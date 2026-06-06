@@ -19,30 +19,55 @@ Submit both your .py file and .doc/.docx file in this assignment and these files
 
 ticket_supply = 20
 
-def ticket_tracker(tickets_ordered):
-    if tickets_ordered >= ticket_supply:
-        return True
+
+
+
+"""
+What I want my code to check:
+
+Are we sold out?
+
+how many tickets does the customer want
+
+are they exceeding the 4 ticket max per customer rule?
+
+If the customer is requesting 4 or less, do we even have enough?. 
+
+is 
+    
+_____
+"""
+def ticket_sign(ticket_supply=ticket_supply):
+
+    if ticket_supply > 0:
+        print(f"Welcome! We have {ticket_supply} tickets left.")
+        buy_a_ticket()
     else:
-        return False
-
-
-
-def buy_a_ticket():
-    print(f"Hello, there are currently {ticket_supply} tickets available.")
-
-    tickets_to_buy = int(input:("How many tickets would you like?"))
-    if not ticket_tracker(tickets_to_buy):
-        return "sold out."
-    elif tickets_to_buy > 4:
-        return "4 tickets Max per customer."
-    else:
-        return f"You have purchased {tickets_to_buy} tickets."
-        ticket_supply -= tickets_to_buy
-
-
-buy_a_ticket()
+        print("we are sold out.")
 
 
 
 
-        if
+
+
+
+
+def buy_a_ticket(ticket_supply=ticket_supply):
+    while True:
+        tickets_to_buy = int(input("How many tickets would you like?"))
+
+        if tickets_to_buy != Int or tickets_to_buy != Float:
+            print("Input must be a number.")
+        elif tickets_to_buy > 4:
+            print("4 tickets Max per customer.")
+        else:
+            return f"You have purchased {tickets_to_buy} tickets."
+
+    ticket_supply -= tickets_to_buy
+    ticket_sign()
+
+ticket_sign()
+
+
+
+
