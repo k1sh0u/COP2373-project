@@ -17,7 +17,7 @@ You must also have a technical design document (refer to the Submitting Programm
 Submit both your .py file and .doc/.docx file in this assignment and these files must also be in your repository.
 """
 
-ticket_supply = 20
+
 
 
 
@@ -37,11 +37,14 @@ is
     
 _____
 """
-def ticket_sign(ticket_supply=ticket_supply):
 
-    if ticket_supply > 0:
+ticket_supply = 20
+
+def ticket_sign(ticket_supply):
+
+    if ticket_supply >= 1:
         print(f"Welcome! We have {ticket_supply} tickets left.")
-        buy_a_ticket()
+        buy_a_ticket(ticket_supply)
     else:
         print("we are sold out.")
 
@@ -52,21 +55,30 @@ def ticket_sign(ticket_supply=ticket_supply):
 
 
 
-def buy_a_ticket(ticket_supply=ticket_supply):
+def buy_a_ticket(ticket_supply):
     while True:
-        tickets_to_buy = int(input("How many tickets would you like?"))
 
-        if tickets_to_buy != Int or tickets_to_buy != Float:
+        try:
+            tickets_to_buy = int(input("How many tickets would you like?: "))
+        except ValueError:
             print("Input must be a number.")
-        elif tickets_to_buy > 4:
+            continue
+        if tickets_to_buy > 4:
             print("4 tickets Max per customer.")
+        elif tickets_to_buy < 1:
+            print("You cannot buy less than 1 ticket.")
+        elif tickets_to_buy > ticket_supply:
+            print(f"there are only {ticket_supply} tickets left.")
         else:
-            return f"You have purchased {tickets_to_buy} tickets."
+            print(f"You have purchased {tickets_to_buy} tickets.")
+            ticket_supply -= tickets_to_buy
+            ticket_sign(ticket_supply)
+            break
 
-    ticket_supply -= tickets_to_buy
-    ticket_sign()
 
-ticket_sign()
+
+
+ticket_sign(ticket_supply)
 
 
 
