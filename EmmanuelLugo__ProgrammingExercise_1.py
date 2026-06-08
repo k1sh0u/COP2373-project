@@ -16,11 +16,21 @@ You must also have a technical design document (refer to the Submitting Programm
 
 Submit both your .py file and .doc/.docx file in this assignment and these files must also be in your repository.
 """
-
+"""
+Two main variables to track how many buyers and how many available tickets at start
+and after each purchase.
+"""
 buyers = 0
-
 ticket_supply = 20
 
+
+"""
+ticket_sign function designed to take both variables and determine 
+if any tickets are available for purchase, and depending on availability
+will call the buy_a_ticket function.
+will not allow buyer to purchase once ticket_suppy is 0 and then will 
+print accumulated number of buyers.
+"""
 def ticket_sign(ticket_supply, buyers):
 
     if ticket_supply >= 1:
@@ -30,7 +40,11 @@ def ticket_sign(ticket_supply, buyers):
         print("we are sold out.")
         print(f"Total buyers: {buyers}")
 
-
+"""
+buy_a_ticket function designed to take two variables and validate the input value type and
+and then allow the buyer to purchase inline with the purchasing guidelines.
+accumulates buyers after each purchase. 
+"""
 def buy_a_ticket(ticket_supply, buyers):
     while True:
 
@@ -54,7 +68,7 @@ def buy_a_ticket(ticket_supply, buyers):
 
 
 
-
+"function called immediately initiates the process."
 ticket_sign(ticket_supply,buyers)
 
 
