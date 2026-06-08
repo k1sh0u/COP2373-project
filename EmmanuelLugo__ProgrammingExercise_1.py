@@ -17,45 +17,21 @@ You must also have a technical design document (refer to the Submitting Programm
 Submit both your .py file and .doc/.docx file in this assignment and these files must also be in your repository.
 """
 
-
-
-
-
-
-"""
-What I want my code to check:
-
-Are we sold out?
-
-how many tickets does the customer want
-
-are they exceeding the 4 ticket max per customer rule?
-
-If the customer is requesting 4 or less, do we even have enough?. 
-
-is 
-    
-_____
-"""
+buyers = 0
 
 ticket_supply = 20
 
-def ticket_sign(ticket_supply):
+def ticket_sign(ticket_supply, buyers):
 
     if ticket_supply >= 1:
         print(f"Welcome! We have {ticket_supply} tickets left.")
-        buy_a_ticket(ticket_supply)
+        buy_a_ticket(ticket_supply,buyers)
     else:
         print("we are sold out.")
+        print(f"Total buyers: {buyers}")
 
 
-
-
-
-
-
-
-def buy_a_ticket(ticket_supply):
+def buy_a_ticket(ticket_supply, buyers):
     while True:
 
         try:
@@ -72,13 +48,14 @@ def buy_a_ticket(ticket_supply):
         else:
             print(f"You have purchased {tickets_to_buy} tickets.")
             ticket_supply -= tickets_to_buy
-            ticket_sign(ticket_supply)
+            buyers += 1
+            ticket_sign(ticket_supply,buyers)
             break
 
 
 
 
-ticket_sign(ticket_supply)
+ticket_sign(ticket_supply,buyers)
 
 
 
